@@ -6,7 +6,7 @@ class Interpreteur{
 	private ArrayList<String> tabSymboles;
 
 	public void lancerShell(){
-
+		
 	}
 
 	private void initTabSymboles(){
@@ -36,7 +36,29 @@ class Symbole{
 //}
 
 class Variable extends Symbole{
-	
+	public Variable(String var){
+		try{
+			this.verifierSyntaxe(var);
+		}catch(){
+
+		}
+	}
+	private double valeur;
+	private void verifierSyntaxe(String var) {
+		try{
+			
+		}catch(){
+
+		}
+	}
+
+	public double getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(double valeur) {
+		this.valeur = valeur;
+	}
 }
 
 abstract class Commande extends Symbole{
