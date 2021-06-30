@@ -1,15 +1,16 @@
 package com.src.TP_POO;
 
 import java.util.HashMap;
-
+import com.src.*;
 class TableDesSymboles{
 	private HashMap<String,Symbole> tabSymboles = new HashMap<String,Symbole>();
 
-	static void initTabSymboles(){
+	private void initTabSymboles(){
 		
 	}
 
-	private Symbole readSymbole(String key){
+	public Symbole readSymbole(String key) throws SymboleNonTrouveException{
+		return null;
 
 	}
 
@@ -30,8 +31,6 @@ class Interpreteur{
 	public void lancerShell(){
 
 	}
-
-
 
 	public Commande InterpreterLigne(String ligne) throws MissingArgumentException, CommandNotFoundException{
 		return new Commande() {};
@@ -56,20 +55,19 @@ class Symbole{
 //}
 
 class Variable extends Symbole{
-	public Variable(String var){
+	Variable(String var,TableDesSymboles tab){
+		super(var);
 		try{
 			this.verifierSyntaxe(var);
-		}catch(){
+			tab.readSymbole(var);
+		}catch(Exception e){
 
 		}
 	}
 	private double valeur;
-	private void verifierSyntaxe(String var) {
-		try{
-			
-		}catch(){
+	private void verifierSyntaxe(String var) throws SyntaxeException {
+		if (Utils.isNumeric(String.valueOf(var.toCharArray()[0])) == true) throw new SyntaxeException()
 
-		}
 	}
 
 	public double getValeur() {
