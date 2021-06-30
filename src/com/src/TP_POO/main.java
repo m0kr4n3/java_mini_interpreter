@@ -1,26 +1,37 @@
 package com.src.TP_POO;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+
+class TableDesSymboles{
+	private HashMap<String,Symbole> tabSymboles = new HashMap<String,Symbole>();
+
+	static void initTabSymboles(){
+		
+	}
+
+	private Symbole readSymbole(String key){
+
+	}
+
+	public void addOrUpdateSymbole(Symbole symbole) throws MotCleReserveException{
+		if(this.tabSymboles.containsKey(symbole.nom)){
+
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+}
 
 class Interpreteur{
-	private ArrayList<String> tabSymboles;
 
 	public void lancerShell(){
 
 	}
 
-	private void initTabSymboles(){
 
-	}
-
-	public Symbole readSymbole(){
-
-		return new Symbole();
-	}
-
-	public void addOrUpdateSymbole(Symbole symbole) throws MotCleReserveException{
-
-	}
 
 	public Commande InterpreterLigne(String ligne) throws MissingArgumentException, CommandNotFoundException{
 		return new Commande() {};
@@ -29,6 +40,15 @@ class Interpreteur{
 
 class Symbole{
 	protected String nom;
+
+	public Symbole(){}
+	public Symbole(String nom){
+		this.nom = nom;
+	}
+
+	public String getNom(){		return this.nom;}
+	public void setNom(String nom){	this.nom = nom;}
+	
 }
 
 //class Fonction extends Symbole{
