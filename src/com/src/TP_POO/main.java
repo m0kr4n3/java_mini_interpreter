@@ -23,7 +23,7 @@ class Interpreteur{
 	}
 
 	public Commande InterpreterLigne(String ligne) throws MissingArgumentException, CommandNotFoundException{
-		
+		return new Commande() {};
 	}
 }
 
@@ -31,9 +31,9 @@ class Symbole{
 	protected String nom;
 }
 
-class Fonction extends Symbole{
-	private functionObject code;
-}
+//class Fonction extends Symbole{
+//	private functionObject code;
+//}
 
 class Variable extends Symbole{
 	
@@ -53,6 +53,6 @@ class Let extends Commande{
 
 class main{
 	public static void main(String[] args) {
-		
+		System.out.println("a");
 	}
 }  
