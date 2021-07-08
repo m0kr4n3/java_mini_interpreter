@@ -4,14 +4,12 @@ class Variable extends Symbole{
 
 	private double valeur;
 
-	Variable(String name,double valeur,TableDesSymboles tab){
+	Variable(String name,double valeur,TableDesSymboles tab)throws SyntaxeException,OperateurManquantException {
 		super(name);
-		try{
-			verifierSyntaxe();
-			this.valeur = valeur;
-		}catch(Exception e ){
-			System.out.println(e.getMessage());
-		}
+	
+		verifierSyntaxe();
+		this.valeur = valeur;
+	
 	}
 	private void verifierSyntaxe() throws SyntaxeException,OperateurManquantException {
 		if (this.getNom().isEmpty())						 	throw new OperateurManquantException();

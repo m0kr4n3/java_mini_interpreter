@@ -131,7 +131,6 @@ public class Expression{
 			
 			postfix.add(operators.pop());
 		}
-
 		return postfix;
 		
 	}
@@ -149,6 +148,8 @@ public class Expression{
 					finale = finale + "(0" + string + "1)*";
 				}else if(isOperator(s.get(count-1))==1){
 					finale = finale + "(0" + string + "1)*";
+				}else{
+					finale = finale + string;
 				}
 			}else{
 				finale = finale + string;
