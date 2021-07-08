@@ -19,8 +19,8 @@ public class Expression{
 	public String getExpression(){	return this.expression;}
 	
 	public ArrayList<String> turnToPostFixed() throws	ParentheseFermanteManquanteException,
-						ParentheseOuvranteManquanteException,
-						OperandeManquantException
+								ParentheseOuvranteManquanteException,
+								OperandeManquantException
 	{
 		Deque<String> operators = new LinkedList<String>();
 		ArrayList<String> postfix = new ArrayList<String>();
@@ -28,7 +28,10 @@ public class Expression{
 		this.expression = this.expression.replace	(" ", "");
 		String[] arrOfStr = this.expression.split("((?<=\\+|-|\\*|/|sqrt|cos|sin|tan|abs|log|\\(|\\))|(?=\\+|-|\\*|/|sqrt|cos|sin|tan|abs|log|\\(|\\)))");
 		ArrayList<String> arrList = new ArrayList<String>(Arrays.asList(arrOfStr));
-
+		String corrected = plusMoinsRegle(arrList);
+		arrOfStr = corrected.split("((?<=\\+|-|\\*|/|sqrt|cos|sin|tan|abs|log|\\(|\\))|(?=\\+|-|\\*|/|sqrt|cos|sin|tan|abs|log|\\(|\\)))");
+		arrList = new ArrayList<String>(Arrays.asList(corrected));
+		
 		int stackPrecedence			=-1;
 		int currentPrecedence			=0;
 		int currentNumberOfOperands		=0;
@@ -133,6 +136,28 @@ public class Expression{
 		
 	}
 
+	private String plusMoinsRegle(ArrayList<String> s){
+		int count=0;
+		String finale ="";
+		for (String string : s) {
+			if(isOperator(string)==1){
+				if(count==0){
+					finale = finale + "(0" + string + "1)*";
+				}else if(isOperator(s.get(count-1))==4){
+					finale = finale + "(0" + string + "1)*";
+				}else if(isOperator(s.get(count-1))==2){
+					finale = finale + "(0" + string + "1)*";
+				}else if(isOperator(s.get(count-1))==1){
+					finale = finale + "(0" + string + "1)*";
+				}
+			}else{
+				finale = finale + string;
+			}
+			count++;
+		}
+		return finale;
+	}
+
 	//	retourne le niveau de precedence de l'operateur
 	//	ou -1 si ce n'est pas un operateur
 	static public int isOperator(String op){
@@ -151,5 +176,7 @@ public class Expression{
 
 		return 0;
 	}
+
+
 
 }

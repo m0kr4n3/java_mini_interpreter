@@ -41,9 +41,7 @@ class Interpreteur{
 		}		
 
 		Symbole unknown = new Symbole(arrl.get(0).trim());
-		Symbole cm = tabSymb.readSymbole(unknown.getNom());
-
-		System.out.println("here");
+		Symbole cm = tabSymb.readSymbole(unknown.getNom()); 
 
 		if(cm==null)				throw new CommandNotFoundException();//	commande non trouvée
 		else if(cm instanceof End)		return (Commande)cm;
@@ -53,7 +51,6 @@ class Interpreteur{
 			//	on traite les expressions autre part
 			
 			try{
-				System.out.println("here1 " + cm.getClass().toString());
 
 				((Commande)cm).exec(arrl.get(1),tabSymb);
 			}

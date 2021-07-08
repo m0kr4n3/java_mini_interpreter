@@ -44,11 +44,11 @@ class Let extends Commande {
 		String[] strArr = str.trim().split("=");
 		List<String> arrl = Arrays.asList(strArr);
 		if(arrl.size()<2)	throw new SigneEgalManquantException();
-
+		
 		try {
 			double result = this.InterpreterExpression(arrl.get(1).trim(), tabSymb);
 
-			tabSymb.addOrUpdateSymbole(new Variable(arrl.get(0),result,tabSymb));
+			tabSymb.addOrUpdateSymbole(new Variable(arrl.get(0).trim(),result,tabSymb));
 			System.out.println("Ok : " + result);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

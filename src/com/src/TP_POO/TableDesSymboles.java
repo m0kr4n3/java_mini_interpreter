@@ -28,9 +28,6 @@ class TableDesSymboles{
 	}
 
 	public Symbole readSymbole(String key){
-		for (Entry<String, Symbole> iterable_element : tabSymboles.entrySet()) {
-			System.out.println(iterable_element.getValue().getNom());
-		}
 
 		Symbole s = this.tabSymboles.get(key);
 		return s;
@@ -38,14 +35,12 @@ class TableDesSymboles{
 
 	public void addOrUpdateSymbole(Symbole symbole) throws MotCleReserveException{
 		if(tabSymboles.containsKey(symbole.getNom())){
-			System.out.println("lol");
 			Symbole symb = this.tabSymboles.get(symbole.getNom());
 			if(!(symb instanceof Variable))	throw new MotCleReserveException();
 			
 			((Variable)symb).setValeur(((Variable)symbole).getValeur());
 		}else{
-			System.out.println("isshhh");
-			this.tabSymboles.put(symbole.getNom(), symbole);
+			this.tabSymboles.put(symbole.getNom().trim(), symbole);
 		}
 	}
 

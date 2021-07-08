@@ -9,11 +9,19 @@ abstract class Commande extends Symbole{
 		super(nom);
 	}
 
-	public double InterpreterExpression(String expression,TableDesSymboles tabSymb) throws IncorrectOperandeException,DivisionParZeroException,SymboleNonTrouveException{
+	public double InterpreterExpression(String expression,TableDesSymboles tabSymb) throws	IncorrectOperandeException,
+												DivisionParZeroException,
+												SymboleNonTrouveException,
+												ParentheseFermanteManquanteException,
+												ParentheseOuvranteManquanteException,
+												OperandeManquantException,
+												SymboleNonTrouveException,
+												IncorrectOperandeException
+	{
 
 		Expression exp = new Expression(expression);
 
-		try{
+		//try{
 			ArrayList<String> expPostFixe = exp.turnToPostFixed();
 			Deque<Double> vars = new LinkedList<Double>();
 
@@ -25,19 +33,12 @@ abstract class Commande extends Symbole{
 					//	la recherche dans la table des symboles
 					Symbole symb;
 
-					try{
-						System.out.println("avant");
+					symb = tabSymb.readSymbole(string);
 
-						symb = tabSymb.readSymbole(string);
+					if(symb==null)			throw new SymboleNonTrouveException(string);
+					if(!(symb instanceof Variable))	throw new IncorrectOperandeException();
 
-						if(symb==null)			throw new SymboleNonTrouveException(string);
-						if(!(symb instanceof Variable))	throw new IncorrectOperandeException();
-
-						vars.push( ((Variable) symb).getValeur() );
-
-					}catch(Exception e){
-						System.out.println(e.getMessage());
-					}
+					vars.push( ((Variable) symb).getValeur() );
 
 
 				}
@@ -82,11 +83,12 @@ abstract class Commande extends Symbole{
 
 			return vars.pop();
 
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-
-		return 0;		
+		// }
+		// catch(Exception e){
+		// 	throw e;
+		// }
+		//finally{
+		//}		
 	}
 
 	abstract protected void exec (String str,TableDesSymboles tabSymb) throws SecondMembreManquantException,TooMuchArgumentsException,ParentheseFermanteManquanteException,ParentheseOuvranteManquanteException,OperandeManquantException,SigneEgalManquantException;
