@@ -89,5 +89,5 @@ abstract class Commande extends Symbole{
 		return 0;		
 	}
 
-	abstract protected void exec (String str,TableDesSymboles tabSymb) throws TooMuchArgumentsException,ParentheseFermanteManquanteException,ParentheseOuvranteManquanteException,OperandeManquantException,SigneEgalManquantException;
+	abstract protected void exec (String str,TableDesSymboles tabSymb) throws SecondMembreManquantException,TooMuchArgumentsException,ParentheseFermanteManquanteException,ParentheseOuvranteManquanteException,OperandeManquantException,SigneEgalManquantException;
 }
