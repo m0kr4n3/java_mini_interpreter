@@ -14,6 +14,8 @@ class Interpreteur{
 	public void lancerShell(TableDesSymboles tabSymb){
 		Boolean stop = false;
 		
+		System.out.println("Entrez vos commandes. Tapez end pour terminer votre programme.\nUne commande doit être de la forme\nlet <variable> = <expression> ou print <expression>\n");
+
 		Scanner sc = new Scanner(System.in).useDelimiter("\n");
 		while(!stop){
 			System.out.print("> ");

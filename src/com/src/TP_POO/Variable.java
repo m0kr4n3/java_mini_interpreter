@@ -11,6 +11,7 @@ class Variable extends Symbole{
 		this.valeur = valeur;
 	
 	}
+	
 	private void verifierSyntaxe() throws SyntaxeException,OperateurManquantException {
 		if (this.getNom().isEmpty())						 	throw new OperateurManquantException();
 		if (Utils.isNumeric(String.valueOf(this.getNom().toCharArray()[0])) == true)	throw new SyntaxeException();
