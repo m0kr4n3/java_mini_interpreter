@@ -1,4 +1,4 @@
-# an interpreter of arethmetic operations realized with JAVA
+# a mini interpreter of arethmetic operations written in JAVA
 
 It has 3 commands :
     let <variable> = <expression>
