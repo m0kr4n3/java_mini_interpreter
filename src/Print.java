@@ -1,4 +1,4 @@
-package com.src.TP_POO;
+package src;
 
 class Print extends Commande{
 	public Print(String nom){

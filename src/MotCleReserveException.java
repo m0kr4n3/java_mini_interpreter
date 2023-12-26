@@ -1,4 +1,4 @@
-package com.src.TP_POO;
+package src;
 
 public class MotCleReserveException extends Exception {
 	@Override

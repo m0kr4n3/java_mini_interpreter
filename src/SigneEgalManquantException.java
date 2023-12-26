@@ -1,4 +1,4 @@
-package com.src.TP_POO;
+package src;
 
 public class SigneEgalManquantException extends Exception{
 	@Override

@@ -1,4 +1,4 @@
-package com.src.TP_POO;
+package src;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
