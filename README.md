@@ -9,5 +9,6 @@ It has 3 commands :
     
 It has 6 built-in functions: sin, cos, tan, abs, sqrt et log.
 
+![image](./picture.png)
 
-Achieved by [CreponneKarim](https://github.com/CreponneKarim) and me
+Realized by [CreponneKarim](https://github.com/CreponneKarim) and myself. 
