@@ -1,4 +1,4 @@
-# a mini interpreter of arethmetic operations written in JAVA
+# Mini interpreter of arethmetic operations written in JAVA
 
 It has 3 commands :
 ```
